@@ -1,0 +1,78 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqhwjiqdls51x"]
+
+[ext_resource type="PackedScene" uid="uid://bxv6l2626813g" path="res://wall.tscn" id="1_5rrd3"]
+[ext_resource type="PackedScene" uid="uid://cnakq3b4kedky" path="res://player.tscn" id="2_4b5cr"]
+[ext_resource type="PackedScene" uid="uid://dcli3lv3owm63" path="res://player_control.tscn" id="3_maf6i"]
+[ext_resource type="PackedScene" uid="uid://bwmhvxj2cy4jk" path="res://imp.tscn" id="3_twsnt"]
+
+[node name="Level" type="Node2D"]
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Wall" parent="Walls" instance=ExtResource("1_5rrd3")]
+position = Vector2(-1, -33)
+rotation = -0.000242159
+color = Color(0, 0, 0.258824, 1)
+polygon = PackedVector2Array(-5, -2, -6, 58, 1170, 58, 1170, -10)
+
+[node name="Wall2" parent="Walls" instance=ExtResource("1_5rrd3")]
+position = Vector2(-17, 633)
+rotation = 0.00467965
+color = Color(0, 0, 0.258824, 1)
+polygon = PackedVector2Array(-5, -2, -6, 58, 1170, 58, 1170, -10)
+
+[node name="Wall3" parent="Walls" instance=ExtResource("1_5rrd3")]
+position = Vector2(23, -264)
+rotation = 1.57752
+color = Color(0, 0, 0.258824, 1)
+polygon = PackedVector2Array(-5, -2, -6, 58, 1170, 58, 1170, -10)
+
+[node name="Wall4" parent="Walls" instance=ExtResource("1_5rrd3")]
+position = Vector2(1188, -324)
+rotation = 1.57017
+color = Color(0, 0, 0.258824, 1)
+polygon = PackedVector2Array(-5, -2, -6, 58, 1170, 58, 1170, -10)
+
+[node name="Wall5" parent="Walls" instance=ExtResource("1_5rrd3")]
+position = Vector2(334, 118)
+rotation = 0.609914
+scale = Vector2(0.53683, 1)
+color = Color(0, 0, 0.258824, 1)
+polygon = PackedVector2Array(-5, -2, -6, 58, 1170, 58, 1170, 25.041, 1170, -10)
+
+[node name="Actors" type="Node2D" parent="."]
+
+[node name="Player" parent="Actors" instance=ExtResource("2_4b5cr")]
+position = Vector2(586, 570)
+scale = Vector2(1.5, 1.5)
+color = Color(0.584314, 0.141176, 0.635294, 1)
+health = 10
+speed = 20
+gravity = 500
+
+[node name="imp" parent="Actors" instance=ExtResource("3_twsnt")]
+position = Vector2(81, 65)
+
+[node name="imp2" parent="Actors" instance=ExtResource("3_twsnt")]
+position = Vector2(1097, 59)
+
+[node name="imp3" parent="Actors" instance=ExtResource("3_twsnt")]
+position = Vector2(584, 63)
+
+[node name="imp4" parent="Actors" instance=ExtResource("3_twsnt")]
+position = Vector2(64, 582)
+
+[node name="imp5" parent="Actors" instance=ExtResource("3_twsnt")]
+position = Vector2(1086, 570)
+
+[node name="PlayerControl" parent="." node_paths=PackedStringArray("actor") instance=ExtResource("3_maf6i")]
+actor = NodePath("../Actors/Player")
+
+[node name="Projectiles" type="Node2D" parent="."]
+
+[editable path="Walls/Wall"]
+[editable path="Walls/Wall2"]
+[editable path="Walls/Wall3"]
+[editable path="Walls/Wall4"]
+[editable path="Walls/Wall5"]
+[editable path="Actors/Player"]

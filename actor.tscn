@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyfbh6jxdnlc6"]
+
+[ext_resource type="Script" path="res://actor.gd" id="1_rspax"]
+
+[node name="Actor" type="CharacterBody2D"]
+script = ExtResource("1_rspax")
+color = Color(0.729412, 0, 0, 1)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, -10, -10, 0, 0, 10, 10, 0)

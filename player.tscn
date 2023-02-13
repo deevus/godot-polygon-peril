@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnakq3b4kedky"]
+
+[ext_resource type="PackedScene" uid="uid://dyfbh6jxdnlc6" path="res://actor.tscn" id="1_ujhud"]
+[ext_resource type="Script" path="res://player.gd" id="2_3fiwt"]
+
+[node name="Player" instance=ExtResource("1_ujhud")]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("2_3fiwt")
+color = Color(0.439216, 0.203922, 0.807843, 1)
+
+[node name="CollisionPolygon2D" parent="." index="0"]
+rotation = 1.5708
+polygon = PackedVector2Array(0, -10, -7, 10, 7, 10)

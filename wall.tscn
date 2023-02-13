@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxv6l2626813g"]
+
+[ext_resource type="Script" path="res://Wall.gd" id="1_7vjbx"]
+
+[node name="Wall" type="Polygon2D"]
+script = ExtResource("1_7vjbx")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 6
