@@ -2,13 +2,14 @@ extends CharacterBody2D;
 
 var Projectile = load("res://projectile.tscn");
 
+var area_2d = Area2D.new();
+
 @export_category("Actor")
 @export var color: Color;
 @export_range(1, 1000) var health: int = 3;
 @export_range(0, 1000) var speed: int = 500;
 @export_range(0, 10000) var gravity: int = 3500;
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	var polygon_2d := Polygon2D.new();
 	polygon_2d.polygon = $CollisionPolygon2D.polygon;
@@ -17,7 +18,12 @@ func _ready():
 
 	add_child(polygon_2d);
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	area_2d.collision_layer = collision_layer;
+	area_2d.collision_mask = collision_mask;
+	area_2d.collision_priority = collision_priority;
+	area_2d.add_child($CollisionPolygon2D.duplicate());
+	add_child(area_2d);
+
 func _process(_delta):
 	if (health == 0):
 		die();
@@ -26,7 +32,7 @@ func _physics_process(delta):
 	velocity *= delta;
 	move_and_slide();
 
-func attack(projectile_position: Vector2, projectile_rotation: float, offset: int = 15):
+func attack(projectile_position: Vector2, projectile_rotation: float, offset: int = 25):
 	var projectile = Projectile.instantiate();
 	projectile.position = projectile_position;
 	projectile.rotation = projectile_rotation;

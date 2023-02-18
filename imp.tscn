@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dyfbh6jxdnlc6" path="res://actor.tscn" id="1_y3pom"]
 [ext_resource type="Script" path="res://imp.gd" id="2_7w4cv"]
 
-[node name="Imp" instance=ExtResource("1_y3pom")]
+[node name="Imp" groups=["damageable"] instance=ExtResource("1_y3pom")]
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("2_7w4cv")

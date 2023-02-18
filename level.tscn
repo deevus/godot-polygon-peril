@@ -46,7 +46,7 @@ polygon = PackedVector2Array(-5, -2, -6, 58, 1170, 58, 1170, 25.041, 1170, -10)
 position = Vector2(586, 570)
 scale = Vector2(1.5, 1.5)
 color = Color(0.584314, 0.141176, 0.635294, 1)
-health = 10
+health = 100
 speed = 20
 gravity = 500
 
