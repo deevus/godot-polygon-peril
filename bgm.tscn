@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://xcij2enkqx8c"]
+
+[ext_resource type="AudioStream" uid="uid://chchimw0jm73u" path="res://music/metal-01.mp3" id="1_1acvq"]
+
+[node name="BGM" type="AudioStreamPlayer"]
+stream = ExtResource("1_1acvq")
+pitch_scale = 0.75
+autoplay = true
