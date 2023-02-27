@@ -6,7 +6,6 @@ extends "res://actor.gd"
 func _ready():
 	super();
 
-	area_2d.connect("body_entered", self._on_body_entered);
 	area_2d.connect("area_entered", self._on_area_entered);
 
 func _physics_process(delta):

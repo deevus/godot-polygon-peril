@@ -7,3 +7,5 @@ script = ExtResource("1_7vjbx")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_mask = 6
+
+[node name="Area2D" type="Area2D" parent="."]
