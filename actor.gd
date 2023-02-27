@@ -38,11 +38,10 @@ func attack(projectile_position: Vector2, projectile_rotation: float, offset: in
 	projectile.rotation = projectile_rotation;
 	projectile.move_local_x(offset);
 
-	get_node("/root/Level/Projectiles").add_child(projectile);
+	get_node("/root/Main/Level/Projectiles").add_child(projectile);
 
 func take_damage(damage: int, _source: Object):
 	health = max(health - damage, 0);
 
 func die():
-	hide();
 	queue_free();
