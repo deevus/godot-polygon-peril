@@ -13,7 +13,6 @@ func _process(delta):
 	pass
 
 func _on_gameover():
-	print("ON GAMEOVER CALLED")
 	$UserInterface/GameOver.show()
 	
 
