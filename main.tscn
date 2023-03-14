@@ -1,20 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://f317kexcf718"]
+[gd_scene load_steps=3 format=3 uid="uid://f317kexcf718"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_kgnjc"]
-[ext_resource type="PackedScene" uid="uid://dqhwjiqdls51x" path="res://level.tscn" id="2_i457u"]
 [ext_resource type="PackedScene" uid="uid://cw368frgkrs4n" path="res://ui.tscn" id="3_8378q"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_kgnjc")
 
-[node name="Level" parent="." instance=ExtResource("2_i457u")]
-
 [node name="UserInterface" parent="." instance=ExtResource("3_8378q")]
-
-[editable path="Level"]
-[editable path="Level/Walls/Wall"]
-[editable path="Level/Walls/Wall2"]
-[editable path="Level/Walls/Wall3"]
-[editable path="Level/Walls/Wall4"]
-[editable path="Level/Walls/Wall5"]
-[editable path="Level/Actors/Player"]

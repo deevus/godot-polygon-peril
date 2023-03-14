@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqhwjiqdls51x"]
+[gd_scene load_steps=7 format=3 uid="uid://dqhwjiqdls51x"]
 
 [ext_resource type="PackedScene" uid="uid://bxv6l2626813g" path="res://wall.tscn" id="1_5rrd3"]
+[ext_resource type="Script" path="res://level.gd" id="1_qcjfq"]
 [ext_resource type="PackedScene" uid="uid://cnakq3b4kedky" path="res://player.tscn" id="2_4b5cr"]
 [ext_resource type="PackedScene" uid="uid://dcli3lv3owm63" path="res://player_control.tscn" id="3_maf6i"]
 [ext_resource type="PackedScene" uid="uid://bwmhvxj2cy4jk" path="res://imp.tscn" id="3_twsnt"]
+[ext_resource type="AudioStream" uid="uid://chchimw0jm73u" path="res://music/metal-01.mp3" id="6_dd6ql"]
 
 [node name="Level" type="Node2D"]
+script = ExtResource("1_qcjfq")
 
 [node name="Walls" type="Node2D" parent="."]
 
@@ -69,6 +72,12 @@ position = Vector2(1086, 570)
 actor = NodePath("../Actors/Player")
 
 [node name="Projectiles" type="Node2D" parent="."]
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_dd6ql")
+volume_db = -6.559
+pitch_scale = 0.8
+bus = &"New Bus"
 
 [editable path="Walls/Wall"]
 [editable path="Walls/Wall2"]
