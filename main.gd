@@ -23,8 +23,7 @@ func press_start():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_pressed("action_start"):
-		load_level(0)
+	pass
 	
 
 func load_level(number):
@@ -50,5 +49,9 @@ func _on_gameover():
 
 # Restart	
 func _unhandled_input(event):
-	if (event.is_action_pressed("ui_accept") || event.is_action_pressed("action_start")) and $UserInterface/GameOver.visible:
+
+	if current_level == null && Input.is_action_pressed("action_start"):
+		load_level(0)
+
+	if $UserInterface/GameOver.visible && (event.is_action_pressed("ui_accept") || event.is_action_pressed("action_start")):
 		reset_game()
