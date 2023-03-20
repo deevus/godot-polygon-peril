@@ -15,7 +15,8 @@ var levels = [
 var current_level: Node2D;
 
 func _ready():
-	pass
+	ui_gameover_screen.hide()
+	bgm.play()
 
 func press_start():
 	pass
@@ -37,6 +38,7 @@ func load_level(number):
 	current_level.player.gameover.connect(_on_gameover)
 	
 func reset_game():
+	current_level.free()
 	get_tree().reload_current_scene()
 
 func restart_level():
@@ -44,7 +46,8 @@ func restart_level():
 
 func _on_gameover():
 	ui_gameover_screen.show()
-	current_level.free()
+	
+	#current_level.free()
 
 
 # Restart	

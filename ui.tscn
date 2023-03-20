@@ -62,7 +62,6 @@ wait_time = 0.5
 autostart = true
 
 [node name="GameOver" type="ColorRect" parent="."]
-visible = false
 top_level = true
 z_index = 1
 layout_mode = 1

@@ -2,6 +2,8 @@ extends "res://actor.gd";
 
 signal gameover
 
+@onready var death_sound = $DeathExplosion
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	super();
@@ -12,5 +14,3 @@ func _process(delta):
 
 func die():
 	emit_signal("gameover")
-	
-	super.die()
