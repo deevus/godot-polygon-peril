@@ -2,6 +2,7 @@ extends TextureProgressBar
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	value = 100
 	pass # Replace with function body.
 
 
@@ -15,3 +16,4 @@ func update(health):
 	# Health = 50
 	# value = 100
 	value = health * 2
+	print(value)
