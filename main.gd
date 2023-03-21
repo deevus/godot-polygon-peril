@@ -36,6 +36,7 @@ func load_level(number):
 	add_child(current_level)
 	
 	current_level.player.gameover.connect(_on_gameover)
+	current_level.player.hit.connect(ui.lifebar.update)
 	
 func reset_game():
 	current_level.free()

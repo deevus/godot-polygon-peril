@@ -1,8 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://cw368frgkrs4n"]
+[gd_scene load_steps=10 format=3 uid="uid://cw368frgkrs4n"]
 
+[ext_resource type="Script" path="res://ui.gd" id="1_8dn2r"]
 [ext_resource type="Theme" uid="uid://bmn8u2j2ruu37" path="res://dark_theme.tres" id="1_qd21j"]
 [ext_resource type="Script" path="res://Title.gd" id="2_4df2g"]
 [ext_resource type="Theme" uid="uid://8n2n82eugps0" path="res://base_theme.tres" id="2_uvvtt"]
+[ext_resource type="Script" path="res://LifeBar.gd" id="7_wamtb"]
+
+[sub_resource type="Gradient" id="Gradient_m1j2b"]
+offsets = PackedFloat32Array(0.0034965, 0.293706)
+colors = PackedColorArray(0, 1, 0, 1, 1.04925e-05, 0.83041, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_iksnf"]
+gradient = SubResource("Gradient_m1j2b")
+
+[sub_resource type="Gradient" id="Gradient_ifd7f"]
+offsets = PackedFloat32Array(0.00699301, 0.674825, 1)
+colors = PackedColorArray(0.437063, 0.437063, 0.437063, 1, 0.992157, 0, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_l6enw"]
+gradient = SubResource("Gradient_ifd7f")
+width = 1
 
 [node name="UserInterface" type="Control"]
 layout_mode = 3
@@ -11,6 +28,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_8dn2r")
 
 [node name="Title" type="ColorRect" parent="."]
 layout_mode = 1
@@ -62,6 +80,7 @@ wait_time = 0.5
 autostart = true
 
 [node name="GameOver" type="ColorRect" parent="."]
+visible = false
 top_level = true
 z_index = 1
 layout_mode = 1
@@ -87,5 +106,29 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_qd21j")
 text = "Game Over"
+
+[node name="LifeBar" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 351.0
+offset_top = 54.0
+offset_right = -347.0
+offset_bottom = 85.0
+grow_horizontal = 2
+tooltip_text = "Life Bar"
+nine_patch_stretch = true
+texture_under = SubResource("GradientTexture1D_iksnf")
+texture_progress = SubResource("GradientTexture1D_l6enw")
+script = ExtResource("7_wamtb")
+
+[node name="ColorRect" type="ColorRect" parent="LifeBar"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = -6.0
+offset_top = -6.0
+offset_right = 460.0
+offset_bottom = 37.0
+color = Color(0.054902, 0.282353, 0.94902, 0.439216)
 
 [connection signal="timeout" from="Title/Fader" to="Title" method="_on_fader_timeout"]
