@@ -1,8 +1,11 @@
 extends Node
 
+signal level_started
+
 @onready var ui = $UserInterface
 @onready var ui_title_screen = $UserInterface/Title
 @onready var ui_gameover_screen = $UserInterface/GameOver
+@onready var ui_lifebar = $UserInterface/LifeBar
 @onready var bgm = $"/root/Bgm"
 
 var levels = [
@@ -16,21 +19,14 @@ var current_level: Node2D;
 
 func _ready():
 	ui_gameover_screen.hide()
+	ui_lifebar.hide()
 	bgm.play()
-
-func press_start():
-	pass
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-	
 
 func load_level(number):
 	bgm.stop()
 	ui_title_screen.hide()
-	
+	ui_lifebar.show()
+
 	current_level = levels[number].instantiate()
 	
 	add_child(current_level)
@@ -48,14 +44,11 @@ func restart_level():
 func _on_gameover():
 	ui_gameover_screen.show()
 	
-	#current_level.free()
-
-
 # Restart	
 func _unhandled_input(event):
 
 	if current_level == null && Input.is_action_pressed("action_start"):
 		load_level(0)
 
-	if $UserInterface/GameOver.visible && (event.is_action_pressed("ui_accept") || event.is_action_pressed("action_start")):
+	if ui_gameover_screen.visible && (event.is_action_pressed("ui_accept") || event.is_action_pressed("action_start")):
 		reset_game()
