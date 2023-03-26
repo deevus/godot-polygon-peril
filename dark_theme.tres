@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bmn8u2j2ruu37"]
+
+[ext_resource type="FontFile" uid="uid://dvmu4bt5m3gyq" path="res://fonts/Darkmode-Regular.ttf" id="1_e130c"]
+
+[resource]
+default_font = ExtResource("1_e130c")
+default_font_size = 44

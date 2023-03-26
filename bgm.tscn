@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://xcij2enkqx8c"]
+
+[ext_resource type="AudioStream" uid="uid://bt1af7jw3p81w" path="res://music/bgm-industrial.ogg" id="1_0gp2w"]
+
+[node name="BGM" type="AudioStreamPlayer"]
+stream = ExtResource("1_0gp2w")
+pitch_scale = 0.75
+autoplay = true
+bus = &"New Bus"
