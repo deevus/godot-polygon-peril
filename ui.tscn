@@ -1,10 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://cw368frgkrs4n"]
+[gd_scene load_steps=13 format=3 uid="uid://cw368frgkrs4n"]
 
 [ext_resource type="Script" path="res://ui.gd" id="1_8dn2r"]
 [ext_resource type="Theme" path="res://dark_theme.tres" id="1_qd21j"]
 [ext_resource type="Script" path="res://Title.gd" id="2_4df2g"]
 [ext_resource type="Theme" uid="uid://8n2n82eugps0" path="res://base_theme.tres" id="2_uvvtt"]
+[ext_resource type="Shader" path="res://ui.gdshader" id="5_274a7"]
 [ext_resource type="Script" path="res://LifeBar.gd" id="7_wamtb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c5xp1"]
 
 [sub_resource type="Gradient" id="Gradient_ifd7f"]
 offsets = PackedFloat32Array(0.00699301, 0.674825, 1)
@@ -20,6 +23,10 @@ colors = PackedColorArray(0, 1, 0, 1, 1.04925e-05, 0.83041, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_iksnf"]
 gradient = SubResource("Gradient_m1j2b")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_obqqt"]
+shader = ExtResource("5_274a7")
+shader_parameter/opacity = 1.0
 
 [node name="UserInterface" type="Control"]
 layout_mode = 3
@@ -108,6 +115,7 @@ theme = ExtResource("1_qd21j")
 text = "Game Over"
 
 [node name="LifeBar" type="TextureProgressBar" parent="."]
+material = SubResource("ShaderMaterial_c5xp1")
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -122,6 +130,7 @@ nine_patch_stretch = true
 texture_under = SubResource("GradientTexture1D_l6enw")
 texture_progress = SubResource("GradientTexture1D_iksnf")
 script = ExtResource("7_wamtb")
+shader_material = SubResource("ShaderMaterial_obqqt")
 
 [node name="ColorRect" type="ColorRect" parent="LifeBar"]
 show_behind_parent = true
