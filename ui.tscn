@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://cw368frgkrs4n"]
+[gd_scene load_steps=15 format=3 uid="uid://cw368frgkrs4n"]
 
 [ext_resource type="Script" path="res://ui.gd" id="1_8dn2r"]
 [ext_resource type="Theme" path="res://dark_theme.tres" id="1_qd21j"]
 [ext_resource type="Script" path="res://Title.gd" id="2_4df2g"]
 [ext_resource type="Theme" uid="uid://8n2n82eugps0" path="res://base_theme.tres" id="2_uvvtt"]
 [ext_resource type="Shader" path="res://ui.gdshader" id="5_274a7"]
+[ext_resource type="FontFile" uid="uid://dvmu4bt5m3gyq" path="res://fonts/Darkmode-Regular.ttf" id="7_2iddj"]
 [ext_resource type="Script" path="res://LifeBar.gd" id="7_wamtb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c5xp1"]
@@ -27,6 +28,10 @@ gradient = SubResource("Gradient_m1j2b")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_obqqt"]
 shader = ExtResource("5_274a7")
 shader_parameter/opacity = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_1t424"]
+font = ExtResource("7_2iddj")
+font_size = 24
 
 [node name="UserInterface" type="Control"]
 layout_mode = 3
@@ -143,10 +148,11 @@ color = Color(0.054902, 0.282353, 0.94902, 0.439216)
 
 [node name="Label" type="Label" parent="LifeBar"]
 layout_mode = 0
-offset_left = -4.0
-offset_right = 36.0
-offset_bottom = 26.0
+offset_left = -6.0
+offset_right = 34.0
+offset_bottom = 27.0
 rotation = 1.5708
 text = "LIFE"
+label_settings = SubResource("LabelSettings_1t424")
 
 [connection signal="timeout" from="Title/Fader" to="Title" method="_on_fader_timeout"]
