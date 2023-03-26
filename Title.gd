@@ -1,16 +1,6 @@
 extends ColorRect
 
-@onready
-var startText = $PressStart
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+@onready var start_text = $PressStart
 	
 func _on_fader_timeout():
-	startText.visible = !startText.visible
+	start_text.visible = !start_text.visible
