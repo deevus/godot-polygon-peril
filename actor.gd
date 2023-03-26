@@ -9,6 +9,7 @@ var area_2d = Area2D.new();
 @export_range(1, 1000) var health: int = 3;
 @export_range(0, 1000) var speed: int = 500;
 @export_range(0, 10000) var gravity: int = 3500;
+@export var projectiles_target: NodePath;
 
 func _ready():
 	var polygon_2d := Polygon2D.new();
@@ -32,13 +33,22 @@ func _physics_process(delta):
 	velocity *= delta;
 	move_and_slide();
 
+func get_projectiles_target() -> Node:
+	if projectiles_target.is_empty():
+		var projectiles_target_node = Node.new()
+		projectiles_target_node.name = 'Projectiles'
+		add_child(projectiles_target_node)
+		projectiles_target = projectiles_target_node.get_path()
+
+	return get_node(projectiles_target)
+
 func attack(projectile_position: Vector2, projectile_rotation: float, offset: int = 25):
 	var projectile = Projectile.instantiate();
 	projectile.position = projectile_position;
 	projectile.rotation = projectile_rotation;
 	projectile.move_local_x(offset);
 
-	get_node("/root/Main/Level/Projectiles").add_child(projectile);
+	get_projectiles_target().add_child(projectile);
 
 func take_damage(damage: int, _source: Object):
 	health = max(health - damage, 0);
