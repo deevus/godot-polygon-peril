@@ -11,12 +11,9 @@ func _ready():
 
 	value = 100
 	
-func update(health):
-	print(health)
-	# TODO (mr): make this dynamic
-	# Health = 50
-	# value = 100
-	value = health * 2
+func update(health: int, max_health: int):
+	print(health, max_health)
+	value = float(health) / float(max_health) * 100
 	print(value)
 
 func _init_material() -> void:

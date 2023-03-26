@@ -1,13 +1,12 @@
 extends "res://actor.gd";
 
 signal gameover
-signal hit
 
 @onready var death_sound = $DeathExplosion
 
-func take_damage(damage: int, _source: Object):
-	health = max(health - damage, 0);
-	hit.emit(health)
+func _ready():
+	super()
+	death.connect(_on_die)
 
-func die():
+func _on_die():
 	gameover.emit()

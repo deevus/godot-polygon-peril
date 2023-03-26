@@ -1,5 +1,8 @@
 extends CharacterBody2D;
 
+signal hit(health_remaining: int, health_max: int)
+signal death()
+
 var Projectile = load("res://projectile.tscn");
 
 var area_2d = Area2D.new();
@@ -7,10 +10,14 @@ var area_2d = Area2D.new();
 @export_category("Actor")
 @export var color: Color;
 @export_range(1, 1000) var health: int = 3;
+@export_range(1, 1000) var max_health: int = 0;
 @export_range(0, 1000) var speed: int = 500;
 @export_range(0, 10000) var gravity: int = 3500;
 
 func _ready():
+	if max_health == 0:
+		max_health = health
+
 	var polygon_2d := Polygon2D.new();
 	polygon_2d.polygon = $CollisionPolygon2D.polygon;
 	polygon_2d.rotation = $CollisionPolygon2D.rotation;
@@ -42,6 +49,8 @@ func attack(projectile_position: Vector2, projectile_rotation: float, offset: in
 
 func take_damage(damage: int, _source: Object):
 	health = max(health - damage, 0);
+	hit.emit(health, max_health)
 
 func die():
+	death.emit()
 	queue_free();
