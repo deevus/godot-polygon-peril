@@ -1,5 +1,7 @@
 extends "res://actor.gd";
 
+class_name Player
+
 signal gameover
 
 @onready var death_sound = $DeathExplosion

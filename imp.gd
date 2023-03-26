@@ -1,6 +1,6 @@
 extends "res://actor.gd"
 
-@onready var player = get_node("/root/Main/Level/Actors/Player");
+@onready var player: Player = get_node("/root/Main/Level/Actors/Player");
 
 func _ready():
 	super();
